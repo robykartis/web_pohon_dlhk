@@ -1,0 +1,123 @@
+'use client'
+
+import { ColumnDef } from '@tanstack/react-table'
+import { ArrowUpDown, Pencil, Trash } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import ModalUpdate from './modal-update'
+import { DETAIL_KELAS_KEPARAHAN, DETAIL_TIPE_KERUSAKAN } from '@/lib/api'
+import { useState } from 'react'
+import axios from '@/lib/axios'
+import { Drawer } from '@/components/ui/drawer'
+import { getToken } from '@/app/api/Admin/UserApi'
+import ModalDeleteTipeKerusakan from './modal-delete'
+import { toast } from 'react-toastify'
+
+const CellComponent = ({ row }: any) => {
+    const pohonId = row.original.id;
+    const [modalData, setModalData] = useState(null);
+    const [modalOpen, setModalOpen] = useState<boolean>(false);
+    const [modalOpenDeleteData, setModalOpenDeleteData] = useState(null);
+    const [modalOpenDelete, setModalOpenDelete] = useState<boolean>(false);
+
+    const handleUpdateFinish = () => {
+        setModalOpen(false); // Menutup Drawer setelah berhasil mengirimkan data update
+    };
+
+    const handleUpdateDelete = () => {
+        setModalOpenDelete(false); // Menutup Drawer setelah berhasil mengirimkan data delete
+    };
+
+    const handleOpenModal = async () => {
+        try {
+            const data = await handleSubmit(pohonId);
+            setModalData(data);
+            setModalOpen(true);
+        } catch (error: any) {
+            toast.error(error, { theme: "colored" });
+        }
+    };
+
+    const handleOpenModalDelete = async () => {
+        try {
+            const data = await handleSubmit(pohonId);
+            setModalOpenDeleteData(data);
+            setModalOpenDelete(true);
+        } catch (error: any) {
+            toast.error(error, { theme: "colored" });
+        }
+    };
+
+    return (
+        <>
+            <div className="flex gap-2 float-right">
+                {/* Tombol edit */}
+                <Button onClick={handleOpenModal} size="icon">  <Pencil /></Button>
+                <Drawer open={modalOpen} onOpenChange={setModalOpen}>
+                    {modalData && modalOpen && <ModalUpdate data={modalData} onUpdateFinish={handleUpdateFinish} />}
+                </Drawer>
+                {/* Tombol delete */}
+                <Button variant="destructive" onClick={handleOpenModalDelete} size="icon">  <Trash /></Button>
+                <Drawer open={modalOpenDelete} onOpenChange={setModalOpenDelete}>
+                    {modalOpenDeleteData && modalOpenDelete && <ModalDeleteTipeKerusakan data={modalOpenDeleteData} onDeleteFinish={handleUpdateDelete} />}
+                </Drawer>
+            </div>
+        </>
+    );
+};
+
+// Mendefinisikan kolom-kolom tabel
+export const columns: ColumnDef<PohonType>[] = [
+    {
+        id: 'no_urut',
+        header: 'No',
+        cell: ({ row }) => {
+            return row.index + 1;
+        }
+    },
+    {
+        accessorKey: 'mulai',
+        header: ({ column }) => {
+            return (
+                <Button
+                    variant='ghost'
+                    onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+                >
+                    Mulai
+                    <ArrowUpDown className='ml-2 h-4 w-4' />
+                </Button>
+            )
+        }
+    },
+    {
+        accessorKey: 'akhir',
+        header: 'Akhir'
+    },
+    {
+        accessorKey: 'kode_keparahan',
+        header: 'Kode Keparahan'
+    },
+    {
+        id: 'actions',
+        cell: CellComponent
+    }
+];
+async function handleSubmit(id: any) {
+    const tokens = await getToken();
+    try {
+        const response = await axios.post(
+            DETAIL_KELAS_KEPARAHAN,
+            { id_pohon: id },
+            {
+                headers: {
+                    Authorization: `Bearer ${tokens}`,
+                }
+            },
+        );
+        console.log(response);
+        return response.data.data; // Mengembalikan data yang diperoleh dari respons POST
+
+    } catch (error) {
+        console.error("Gagal menyimpan data. Terjadi kesalahan pada server:", error);
+        throw error; // Meneruskan error untuk ditangani oleh komponen yang memanggil handleSubmit
+    }
+}
