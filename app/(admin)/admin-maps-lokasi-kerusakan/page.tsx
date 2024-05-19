@@ -1,7 +1,3 @@
-
-
-
-
 import {
     Card,
     CardContent,
@@ -36,34 +32,6 @@ export default function StatistikLokasiKerusakanPage() {
                         </CardContent>
                     </Card>
                 </div>
-                {/* <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Pie Chart</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <PieCharts />
-                        </CardContent>
-                    </Card>
-
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Bar Chart</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <BarCharts />
-                        </CardContent>
-                    </Card>
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Line Chart</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <LineCharts />
-                        </CardContent>
-                    </Card>
-                </div> */}
-
             </main>
         </>
 

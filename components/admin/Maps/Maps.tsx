@@ -1,49 +1,20 @@
 'use client'
 
 import L from 'leaflet'
+import MarkerClusterGroup from 'react-leaflet-cluster'
 import MarkerIcon from '@/public/maps/marker-icon.png'
 import MarkerShadow from '@/public/maps/marker-shadow.png'
 import 'leaflet/dist/leaflet.css'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import { useState } from 'react'
 import { getMapsData } from '@/app/api/Admin/MapsApi'
 
-const Map = () => {
+import React from 'react'
 
-    const [coord, setCoord] = useState([0.5137907, 101.3586024])
-
-    const SearchLocation = () => {
-        return (
-            <div className="search-location">
-                <input type="text" placeholder="Search Location" />
-            </div>
-        )
-    }
-
-    const GetMyLocation = () => {
-        const DATA: any = getMapsData()
-        console.log(DATA)
-        const getMyLocation = () => {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition((DATA) => {
-                    setCoord([DATA.lat, DATA.long])
-                })
-            } else {
-                console.log("Geolocation is not supported by this browser.")
-            }
-        }
-
-        return (
-            <div className="get-my-location">
-                <button onClick={getMyLocation}>Get My Location</button>
-            </div>
-        )
-    }
-
+export default async function MapsData() {
+    const DATA: MapsLokasiKerusakanType[] = await getMapsData()
+    console.log(DATA)
     return (
-        <div>
-
-            <GetMyLocation />
+        <>
             <MapContainer preferCanvas={true}
                 center={[0.5137907, 101.3586024]}
                 zoom={11}
@@ -53,25 +24,28 @@ const Map = () => {
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
-
-                <Marker icon={
-                    new L.Icon({
-                        iconUrl: MarkerIcon.src,
-                        iconRetinaUrl: MarkerIcon.src,
-                        iconSize: [25, 41],
-                        iconAnchor: [12.5, 41],
-                        popupAnchor: [0, -41],
-                        shadowUrl: MarkerShadow.src,
-                        shadowSize: [41, 41],
-                    })
-                } position={[0.5137907, 101.3586024]}>
-                    <Popup>
-                        A pretty CSS3 popup. <br /> Easily customizable.
-                    </Popup>
-                </Marker>
+                <MarkerClusterGroup
+                    chunkedLoading
+                >
+                    {DATA.map((map: any, index: any) => (
+                        <Marker key={index} icon={
+                            new L.Icon({
+                                iconUrl: MarkerIcon.src,
+                                iconRetinaUrl: MarkerIcon.src,
+                                iconSize: [25, 41],
+                                iconAnchor: [12.5, 41],
+                                popupAnchor: [0, -41],
+                                shadowUrl: MarkerShadow.src,
+                                shadowSize: [41, 41],
+                            })
+                        } position={[map.lat, map.long]}>
+                            <Popup>
+                                Jenis Pohon: {map.nama_pohon} <br />Tahun Tanam {map.tahun_tanam}. <br /> Nama Jalan : {map.nm_jalan}
+                            </Popup>
+                        </Marker>
+                    ))}
+                </MarkerClusterGroup>
             </MapContainer>
-        </div>
+        </>
     )
 }
-
-export default Map

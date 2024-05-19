@@ -71,7 +71,7 @@ export function MenuAdmin() {
             <Link
                 href="/dashboard"
                 className={cn("flex items-center gap-3 px-3 py-2 text-muted-foreground transition-all hover:rounded-lg hover:bg-primary/20", {
-                    "rounded-lg bg-primary/20 text-black": isDashboardPath(),
+                    "rounded-lg bg-primary/20 text-black dark:text-white": isDashboardPath(),
                 })}
 
             >

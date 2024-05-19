@@ -59,7 +59,7 @@ const MobileMenuAdmin = () => {
             <Link
                 href="/dashboard"
                 className={cn("mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-sm text-muted-foreground hover:text-foreground", {
-                    "rounded-lg bg-muted px-3 py-2 text-sm text-primary": isDashboardPath(),
+                    "rounded-lg bg-muted px-3 py-2 text-sm text-black dark:text-white": isDashboardPath(),
                 })}
             >
                 <HomeIcon className="h-4 w-4" />
@@ -73,7 +73,7 @@ const MobileMenuAdmin = () => {
                     <Link
                         href="/user"
                         className={cn("mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 text-sm py-2 text-muted-foreground hover:text-foreground", {
-                            "rounded-xl bg-muted px-3 py-2 text-sm text-primary": isUsersPath(),
+                            "rounded-xl bg-muted px-3 py-2 text-sm text-black dark:text-white": isUsersPath(),
                         })}
                     >
                         <Users2 className="h-4 w-4" />
@@ -82,7 +82,7 @@ const MobileMenuAdmin = () => {
                     <Link
                         href="/pohon"
                         className={cn("mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-sm text-muted-foreground hover:text-foreground", {
-                            "rounded-xl bg-muted px-3 py-2 text-sm text-primary": isPohonPath(),
+                            "rounded-xl bg-muted px-3 py-2 text-sm text-black dark:text-white": isPohonPath(),
                         })}
                     >
                         <Trees className="h-4 w-4" />
@@ -91,7 +91,7 @@ const MobileMenuAdmin = () => {
                     <Link
                         href="/tipe-kerusakan"
                         className={cn("mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-sm text-muted-foreground hover:text-foreground", {
-                            "rounded-xl bg-muted px-3 py-2 text-sm text-primary": isTipeKerusakan(),
+                            "rounded-xl bg-muted px-3 py-2 text-sm text-black dark:text-white": isTipeKerusakan(),
                         })}
                     >
                         <BugOff className="h-4 w-4" />
@@ -100,7 +100,7 @@ const MobileMenuAdmin = () => {
                     <Link
                         href="/lokasi-kerusakan"
                         className={cn("mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-sm text-muted-foreground hover:text-foreground", {
-                            "rounded-xl bg-muted px-3 py-2 text-sm text-primary": isLokasiPath(),
+                            "rounded-xl bg-muted px-3 py-2 text-sm text-black dark:text-white": isLokasiPath(),
                         })}
                     >
                         <MapPinned className="h-4 w-4" />
@@ -109,7 +109,7 @@ const MobileMenuAdmin = () => {
                     <Link
                         href="/kelas-keparahan"
                         className={cn("mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-sm text-muted-foreground hover:text-foreground", {
-                            "rounded-xl bg-muted px-3 py-2 text-sm text-primary": isKelasKeparahan(),
+                            "rounded-xl bg-muted px-3 py-2 text-sm text-black dark:text-white": isKelasKeparahan(),
                         })}
                     >
                         <TriangleAlert className="h-4 w-4" />
@@ -120,7 +120,7 @@ const MobileMenuAdmin = () => {
                     <Link
                         href="/admin-maps-lokasi-kerusakan"
                         className={cn("mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-sm text-muted-foreground hover:text-foreground", {
-                            "rounded-xl bg-muted px-3 py-2 text-sm text-primary": isMapsKelasKerusakan(),
+                            "rounded-xl bg-muted px-3 py-2 text-sm text-black dark:text-white": isMapsKelasKerusakan(),
                         })}
                     >
                         <MapPinned className="h-4 w-4" />
