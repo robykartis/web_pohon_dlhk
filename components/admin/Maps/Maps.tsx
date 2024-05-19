@@ -15,37 +15,39 @@ export default async function MapsData() {
     console.log(DATA)
     return (
         <>
-            <MapContainer preferCanvas={true}
-                center={[0.5137907, 101.3586024]}
-                zoom={11}
-                scrollWheelZoom={true}
-                style={{ height: "400px", width: "auto" }} >
-                <TileLayer
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-                <MarkerClusterGroup
-                    chunkedLoading
-                >
-                    {DATA.map((map: any, index: any) => (
-                        <Marker key={index} icon={
-                            new L.Icon({
-                                iconUrl: MarkerIcon.src,
-                                iconRetinaUrl: MarkerIcon.src,
-                                iconSize: [25, 41],
-                                iconAnchor: [12.5, 41],
-                                popupAnchor: [0, -41],
-                                shadowUrl: MarkerShadow.src,
-                                shadowSize: [41, 41],
-                            })
-                        } position={[map.lat, map.long]}>
-                            <Popup>
-                                Jenis Pohon: {map.nama_pohon} <br />Tahun Tanam {map.tahun_tanam}. <br /> Nama Jalan : {map.nm_jalan}
-                            </Popup>
-                        </Marker>
-                    ))}
-                </MarkerClusterGroup>
-            </MapContainer>
+            <div className="">
+                <MapContainer preferCanvas={false}
+                    center={[0.5137907, 101.3586024]}
+                    zoom={11}
+                    scrollWheelZoom={true}
+                    style={{ height: "400px" }} >
+                    <TileLayer
+                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+                    <MarkerClusterGroup
+                        chunkedLoading
+                    >
+                        {DATA.map((map: any, index: any) => (
+                            <Marker key={index} icon={
+                                new L.Icon({
+                                    iconUrl: MarkerIcon.src,
+                                    iconRetinaUrl: MarkerIcon.src,
+                                    iconSize: [25, 41],
+                                    iconAnchor: [12.5, 41],
+                                    popupAnchor: [0, -41],
+                                    shadowUrl: MarkerShadow.src,
+                                    shadowSize: [41, 41],
+                                })
+                            } position={[map.lat, map.long]}>
+                                <Popup>
+                                    Jenis Pohon: {map.nama_pohon} <br />Tahun Tanam {map.tahun_tanam}. <br /> Nama Jalan : {map.nm_jalan}
+                                </Popup>
+                            </Marker>
+                        ))}
+                    </MarkerClusterGroup>
+                </MapContainer>
+            </div>
         </>
     )
 }
