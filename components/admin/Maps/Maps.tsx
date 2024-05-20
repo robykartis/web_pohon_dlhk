@@ -20,7 +20,7 @@ export default async function MapsData() {
                     center={[0.5137907, 101.3586024]}
                     zoom={11}
                     scrollWheelZoom={true}
-                    style={{ height: "400px" }} >
+                    style={{ height: "500px" }} >
                     <TileLayer
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

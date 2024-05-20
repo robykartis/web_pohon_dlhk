@@ -10,6 +10,7 @@ import {
     Bell,
     BugOff,
     CircleUser,
+    FileText,
     Home,
     HomeIcon,
     LineChart,
@@ -55,6 +56,7 @@ const usePathChecks = () => {
         isTipeKerusakanPath: () => ["tipe-kerusakan", "show", "edit"].includes(pathNames[0]),
         isKelasKeparahanPath: () => ["kelas-keparahan", "show", "edit"].includes(pathNames[0]),
         isMapsKelasKeparahan: () => ["admin-maps-lokasi-kerusakan", "show", "edit"].includes(pathNames[0]),
+        isPendataanPohon: () => ["admin-pendataan-pohon", "show", "edit"].includes(pathNames[0]),
     };
 }
 
@@ -63,7 +65,7 @@ export function MenuAdmin() {
     const { isSu, isAdmin, isKepala, isUser, isPetugas } = useUserLevels();
     const {
         isDashboardPath, isUsersPath, isPohonPath, isTipeKerusakanPath,
-        isLokasiPath, isKelasKeparahanPath, isMapsKelasKeparahan
+        isLokasiPath, isKelasKeparahanPath, isMapsKelasKeparahan, isPendataanPohon
     } = usePathChecks();
 
     return (
@@ -131,7 +133,7 @@ export function MenuAdmin() {
                     </Link>
 
                     <Separator className="my-4" />
-                    <h4 className='px-3 py-2'>DATA MAP</h4>
+                    <h4 className='px-3 py-2'> MAP</h4>
                     <Link
                         href="/admin-maps-lokasi-kerusakan"
                         className={cn("flex items-center gap-3 px-3 py-2 text-muted-foreground transition-all hover:rounded-lg hover:bg-primary/20", {
@@ -140,6 +142,17 @@ export function MenuAdmin() {
                     >
                         <MapPinned className="h-4 w-4" />
                         Lokasi Kerusakan
+                    </Link>
+
+                    <h4 className='px-3 py-2'>DATA</h4>
+                    <Link
+                        href="/admin-pendataan-pohon"
+                        className={cn("flex items-center gap-3 px-3 py-2 text-muted-foreground transition-all hover:rounded-lg hover:bg-primary/20", {
+                            "rounded-lg bg-primary/20 text-black  dark:text-white": isPendataanPohon(),
+                        })}
+                    >
+                        <FileText className="h-4 w-4" />
+                        Pendataan Pohon
                     </Link>
                 </>
             )}
