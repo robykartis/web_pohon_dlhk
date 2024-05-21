@@ -44,3 +44,4 @@ export const DELETE_KELAS_KEPARAHAN = API_URL + "/Admin/deleteListKelasKeparahan
 
 // MAPS
 export const LIST_MAP_POHON = API_URL + "/Admin/getDataPohon";
+export const DETAIL_MAP_POHON = API_URL + "/Admin/detailPohon";

@@ -72,6 +72,18 @@ const tokens =await getToken()
     const res = await response.json()
     return res
 }
+export async function getPohonPendataan(): Promise<[KelasKeparahanType]> {
+const tokens =await getToken()
+    const response = await fetch(
+        LIST_KELAS_KEPARAHAN, {
+        headers: {
+            Authorization: `Bearer ${tokens}`,
+        }
+    }
+    )
+    const res = await response.json()
+    return res
+}
 
 
 // Maps Get

@@ -28,3 +28,20 @@ export async function getMapsData(): Promise<[MapsLokasiKerusakanType]> {
     console.log(data)
     return data;
 }
+export async function getMapsDataTable(): Promise<[MapsLokasiKerusakanType]> {
+    const tokens = await getToken()
+
+    const res = await fetch(LIST_MAP_POHON, {
+        method: "GET",
+        cache: "no-store",
+        headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            Authorization: `Bearer ${tokens}`,
+        }
+    });
+    const dataRes = await res.json();
+    const data = dataRes
+    // console.log(data)
+    return data;
+}
