@@ -36,7 +36,8 @@ import {
 import { ReloadIcon } from "@radix-ui/react-icons"
 import { useFormStatus } from "react-dom"
 import { toast } from "@/components/ui/use-toast";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
 
 
 
@@ -46,6 +47,17 @@ function ModalUpdate({ data, onUpdateFinish }: { data: PohonType, onUpdateFinish
     const { pending } = useFormStatus();
     const [errorsRes, setErrors] = useState<any>({});
     const router = useRouter();
+
+    const [isLoading, setIsLoading] = useState(true);
+    useEffect(() => {
+        // Simulasikan pemuatan data
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 2000); // Ubah durasi sesuai kebutuhan
+
+        return () => clearTimeout(timer);
+    }, []);
+
     const FormSchema = z.object({
         id: z.number(),
         id_pohon: z.number(),
@@ -140,50 +152,73 @@ function ModalUpdate({ data, onUpdateFinish }: { data: PohonType, onUpdateFinish
                                     </FormItem>
                                 )}
                             />
-                            <FormField
-                                control={form.control}
-                                name="NamaPohon"
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel>Nama Pohon</FormLabel>
-                                        <Input
-                                            placeholder="Nama Pohon"
 
-                                            {...field}
-                                        />
-                                        <FormMessage />
-                                    </FormItem>
-                                )}
-                            />
-                            <FormField
-                                control={form.control}
-                                name="NamaLatin"
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel>Nama Latin Pohon</FormLabel>
-                                        <Input
-                                            placeholder="Nama Latin Pohon"
-                                            {...field}
-                                        />
-                                        <FormMessage />
-                                    </FormItem>
-                                )}
-                            />
+                            {isLoading ? (
+                                <Skeleton className="h-8 rounded-md mt-8" />
+                            ) : (
+                                <>
+                                    <FormField
+                                        control={form.control}
+                                        name="NamaPohon"
+                                        render={({ field }) => (
+                                            <FormItem>
+                                                <FormLabel>Nama Pohon</FormLabel>
+                                                <Input
+                                                    placeholder="Nama Pohon"
+
+                                                    {...field}
+                                                />
+                                                <FormMessage />
+                                            </FormItem>
+                                        )}
+                                    />
+                                </>
+                            )}
+
+                            {isLoading ? (
+                                <Skeleton className="h-8 rounded-md mt-8" />
+                            ) : (
+                                <>
+                                    <FormField
+                                        control={form.control}
+                                        name="NamaLatin"
+                                        render={({ field }) => (
+                                            <FormItem>
+                                                <FormLabel>Nama Latin Pohon</FormLabel>
+                                                <Input
+                                                    placeholder="Nama Latin Pohon"
+                                                    {...field}
+                                                />
+                                                <FormMessage />
+                                            </FormItem>
+                                        )}
+                                    />
+                                </>
+                            )}
+
+
                         </div>
                         <DrawerFooter>
-                            {pending ? (
-                                <Button disabled >
-                                    <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
-                                    Process...
-                                </Button>
+                            {isLoading ? (
+                                <Skeleton className="h-8 rounded-md mt-8" />
                             ) : (
-                                <Button disabled={pending}>
-                                    Update
-                                </Button>
+                                <>
+                                    {pending ? (
+                                        <Button disabled >
+                                            <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
+                                            Process...
+                                        </Button>
+                                    ) : (
+                                        <Button disabled={pending}>
+                                            Update
+                                        </Button>
+                                    )}
+                                    <DrawerClose asChild>
+                                        <Button variant="outline">Cancel</Button>
+                                    </DrawerClose>
+                                </>
                             )}
-                            <DrawerClose asChild>
-                                <Button variant="outline">Cancel</Button>
-                            </DrawerClose>
+
                         </DrawerFooter>
                     </div>
 

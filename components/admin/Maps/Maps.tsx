@@ -12,7 +12,7 @@ import React from 'react'
 
 export default async function MapsData() {
     const DATA: MapsLokasiKerusakanType[] = await getMapsData()
-    console.log(DATA)
+    // console.log(DATA)
     return (
         <>
             <div className="">

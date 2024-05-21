@@ -16,11 +16,10 @@ export default function DashboardPage() {
                 <div className="flex items-center">
                     <h1 className="text-lg font-semibold md:text-2xl">Dashboard</h1>
                 </div>
-                <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
-                    <CardDashboard titleCard="Total Revenue" totalData="$45,231.89" ketData="+20.1%" />
-                    <CardDashboard titleCard="Total Revenue" totalData="$45,231.89" ketData="+20.1%" />
-                    <CardDashboard titleCard="Total Revenue" totalData="$45,231.89" ketData="+20.1%" />
-                    <CardDashboard titleCard="Total Revenue" totalData="$45,231.89" ketData="+20.1%" />
+                <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
+                    <CardDashboard titleCard="Total Pengguna" totalData="45,231.89" ketData="+20.1%" />
+                    <CardDashboard titleCard="Total Pohon" totalData="45,231.89" ketData="+20.1%" />
+                    <CardDashboard titleCard="Total Pohon Rusak" totalData="45,231.89" ketData="+20.1%" />
                 </div>
             </main>
         </>

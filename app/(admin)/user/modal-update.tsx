@@ -36,8 +36,9 @@ import {
 import { ReloadIcon } from "@radix-ui/react-icons"
 import { useFormStatus } from "react-dom"
 import { toast } from "@/components/ui/use-toast";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Skeleton } from "@/components/ui/skeleton";
 
 
 interface FormData {
@@ -56,6 +57,16 @@ function ModalUpdate({ data, onUpdateFinish }: { data: UserType, onUpdateFinish:
     const { pending } = useFormStatus();
     const [errorsRes, setErrors] = useState<any>({});
     const router = useRouter();
+
+    const [isLoading, setIsLoading] = useState(true);
+    useEffect(() => {
+        // Simulasikan pemuatan data
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 2000); // Ubah durasi sesuai kebutuhan
+
+        return () => clearTimeout(timer);
+    }, []);
 
     const FormSchema = z.object({
         id: z.number(),
@@ -174,160 +185,217 @@ function ModalUpdate({ data, onUpdateFinish }: { data: UserType, onUpdateFinish:
                         <div className="grid items-start gap-4">
                             <div className="grid grid-cols-3 gap-4">
                                 <div className="space-y-2">
-                                    <FormField
-                                        control={form.control}
-                                        name="NamaUser"
-                                        render={({ field }) => (
-                                            <FormItem>
-                                                <FormLabel>Nama User</FormLabel>
-                                                <Input
-                                                    id="NamaUser"
-                                                    placeholder="Name User"
-                                                    {...field}
-                                                />
-                                                <FormMessage />
-                                            </FormItem>
-                                        )}
-                                    />
+                                    {isLoading ? (
+                                        <Skeleton className="h-8 rounded-md mt-8" />
+                                    ) : (
+                                        <>
+                                            <FormField
+                                                control={form.control}
+                                                name="NamaUser"
+                                                render={({ field }) => (
+                                                    <FormItem>
+                                                        <FormLabel>Nama User</FormLabel>
+                                                        <Input
+                                                            id="NamaUser"
+                                                            placeholder="Name User"
+                                                            {...field}
+                                                        />
+                                                        <FormMessage />
+                                                    </FormItem>
+                                                )}
+                                            />
+                                        </>
+                                    )}
                                 </div>
 
                                 <div className="space-y-2">
-                                    <FormField
-                                        control={form.control}
-                                        name="Email"
-                                        render={({ field }) => (
-                                            <FormItem>
-                                                <FormLabel>Email</FormLabel>
-                                                <Input
-                                                    id="Email"
-                                                    placeholder="Email User"
-                                                    {...field}
-                                                />
-                                                <FormMessage />
-                                            </FormItem>
-                                        )}
-                                    />
+                                    {isLoading ? (
+                                        <Skeleton className="h-8 rounded-md mt-8" />
+                                    ) : (
+                                        <>
+                                            <FormField
+                                                control={form.control}
+                                                name="Email"
+                                                render={({ field }) => (
+                                                    <FormItem>
+                                                        <FormLabel>Email</FormLabel>
+                                                        <Input
+                                                            id="Email"
+                                                            placeholder="Email User"
+                                                            {...field}
+                                                        />
+                                                        <FormMessage />
+                                                    </FormItem>
+                                                )}
+                                            />
+                                        </>
+                                    )}
+
                                 </div>
                                 <div className="space-y-2">
-                                    <FormField
-                                        control={form.control}
-                                        name="level"
-                                        render={({ field }) => (
-                                            <FormItem>
-                                                <FormLabel>Level</FormLabel>
-                                                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                                                    <FormControl>
-                                                        <SelectTrigger>
-                                                            <SelectValue placeholder="Pilih Level" />
-                                                        </SelectTrigger>
-                                                    </FormControl>
-                                                    <SelectContent>
-                                                        {levelType.map((data, index) => (
-                                                            <SelectItem key={index} value={data.value}>{data.name}</SelectItem>
-                                                        ))}
-                                                    </SelectContent>
-                                                </Select>
-                                                <FormMessage />
-                                            </FormItem>
-                                        )}
-                                    />
-                                </div>
-                            </div>
-                            <div className="grid grid-cols-2 gap-4">
-                                <div className="space-y-2">
-                                    <FormField
-                                        control={form.control}
-                                        name="NoHp"
-                                        render={({ field }) => (
-                                            <FormItem>
-                                                <FormLabel>No HP</FormLabel>
-                                                <Input
-                                                    type="number"
-                                                    placeholder="No HP"
-                                                    {...field}
-                                                />
-                                                <FormMessage />
-                                            </FormItem>
-                                        )}
-                                    />
-                                </div>
-                                <div className="space-y-2">
-                                    <FormField
-                                        control={form.control}
-                                        name="JK"
-                                        render={({ field }) => (
-                                            <FormItem>
-                                                <FormLabel>Jenis Kelamin</FormLabel>
-                                                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                                                    <FormControl>
-                                                        <SelectTrigger>
-                                                            <SelectValue placeholder="Pilih Jenis Kelamin" />
-                                                        </SelectTrigger>
-                                                    </FormControl>
-                                                    <SelectContent>
-                                                        {genderType.map((data, index) => (
-                                                            <SelectItem key={index} value={data.value}>{data.name}</SelectItem>
-                                                        ))}
-                                                    </SelectContent>
-                                                </Select>
-                                                <FormMessage />
-                                            </FormItem>
-                                        )}
-                                    />
+                                    {isLoading ? (
+                                        <Skeleton className="h-8 rounded-md mt-8" />
+                                    ) : (
+                                        <>
+                                            <FormField
+                                                control={form.control}
+                                                name="level"
+                                                render={({ field }) => (
+                                                    <FormItem>
+                                                        <FormLabel>Level</FormLabel>
+                                                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                                            <FormControl>
+                                                                <SelectTrigger>
+                                                                    <SelectValue placeholder="Pilih Level" />
+                                                                </SelectTrigger>
+                                                            </FormControl>
+                                                            <SelectContent>
+                                                                {levelType.map((data, index) => (
+                                                                    <SelectItem key={index} value={data.value}>{data.name}</SelectItem>
+                                                                ))}
+                                                            </SelectContent>
+                                                        </Select>
+                                                        <FormMessage />
+                                                    </FormItem>
+                                                )}
+                                            />
+                                        </>
+                                    )}
+
                                 </div>
                             </div>
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="space-y-2">
-                                    <FormField
-                                        control={form.control}
-                                        name="password"
-                                        render={({ field }) => (
-                                            <FormItem>
-                                                <FormLabel>Password</FormLabel>
-                                                <Input
-                                                    type="password"
-                                                    placeholder="Masukkan Password"
-                                                    {...field}
-                                                />
-                                                <FormMessage />
-                                            </FormItem>
-                                        )}
-                                    />
+                                    {isLoading ? (
+                                        <Skeleton className="h-8 rounded-md mt-8" />
+                                    ) : (
+                                        <>
+                                            <FormField
+                                                control={form.control}
+                                                name="NoHp"
+                                                render={({ field }) => (
+                                                    <FormItem>
+                                                        <FormLabel>No HP</FormLabel>
+                                                        <Input
+                                                            type="number"
+                                                            placeholder="No HP"
+                                                            {...field}
+                                                        />
+                                                        <FormMessage />
+                                                    </FormItem>
+                                                )}
+                                            />
+                                        </>
+                                    )}
+
+
                                 </div>
                                 <div className="space-y-2">
-                                    <FormField
-                                        control={form.control}
-                                        name="cPassword"
-                                        render={({ field }) => (
-                                            <FormItem>
-                                                <FormLabel>Confirm Password</FormLabel>
-                                                <Input
-                                                    type="password"
-                                                    placeholder="Masukkan Password"
-                                                    {...field}
-                                                />
-                                                <FormMessage />
-                                            </FormItem>
-                                        )}
-                                    />
+                                    {isLoading ? (
+                                        <Skeleton className="h-8 rounded-md mt-8" />
+                                    ) : (
+                                        <>
+                                            <FormField
+                                                control={form.control}
+                                                name="JK"
+                                                render={({ field }) => (
+                                                    <FormItem>
+                                                        <FormLabel>Jenis Kelamin</FormLabel>
+                                                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                                            <FormControl>
+                                                                <SelectTrigger>
+                                                                    <SelectValue placeholder="Pilih Jenis Kelamin" />
+                                                                </SelectTrigger>
+                                                            </FormControl>
+                                                            <SelectContent>
+                                                                {genderType.map((data, index) => (
+                                                                    <SelectItem key={index} value={data.value}>{data.name}</SelectItem>
+                                                                ))}
+                                                            </SelectContent>
+                                                        </Select>
+                                                        <FormMessage />
+                                                    </FormItem>
+                                                )}
+                                            />
+                                        </>
+                                    )}
+
+                                </div>
+                            </div>
+                            <div className="grid grid-cols-2 gap-4">
+                                <div className="space-y-2">
+                                    {isLoading ? (
+                                        <Skeleton className="h-8 rounded-md mt-8" />
+                                    ) : (
+                                        <>
+                                            <FormField
+                                                control={form.control}
+                                                name="password"
+                                                render={({ field }) => (
+                                                    <FormItem>
+                                                        <FormLabel>Password</FormLabel>
+                                                        <Input
+                                                            type="password"
+                                                            placeholder="Masukkan Password"
+                                                            {...field}
+                                                        />
+                                                        <FormMessage />
+                                                    </FormItem>
+                                                )}
+                                            />
+                                        </>
+                                    )}
+
+                                </div>
+                                <div className="space-y-2">
+                                    {isLoading ? (
+                                        <Skeleton className="h-8 rounded-md mt-8" />
+                                    ) : (
+                                        <>
+                                            <FormField
+                                                control={form.control}
+                                                name="cPassword"
+                                                render={({ field }) => (
+                                                    <FormItem>
+                                                        <FormLabel>Confirm Password</FormLabel>
+                                                        <Input
+                                                            type="password"
+                                                            placeholder="Masukkan Password"
+                                                            {...field}
+                                                        />
+                                                        <FormMessage />
+                                                    </FormItem>
+                                                )}
+                                            />
+                                        </>
+                                    )}
+
                                 </div>
                             </div>
 
                         </div>
                         <DrawerFooter>
-                            {pending ? (
-                                <Button disabled >
-                                    <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
-                                    Process...
-                                </Button>
+                            {isLoading ? (
+                                <Skeleton className="h-8 rounded-md mt-8" />
                             ) : (
-                                <Button disabled={pending}>
-                                    Save
-                                </Button>
+                                <>
+                                    {pending ? (
+                                        <Button disabled >
+                                            <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
+                                            Process...
+                                        </Button>
+                                    ) : (
+                                        <Button disabled={pending}>
+                                            Update
+                                        </Button>
+                                    )}
+                                    <DrawerClose asChild>
+                                        <Button variant="outline">Cancel</Button>
+                                    </DrawerClose>
+                                </>
                             )}
-                            <DrawerClose asChild>
-                                <Button variant="outline">Cancel</Button>
-                            </DrawerClose>
+
+
                         </DrawerFooter>
                     </div>
                 </form>

@@ -56,6 +56,7 @@ interface MapProps {
 
 // Lokasi Kerusakan Maps
 type MapsLokasiKerusakanType = {
+  KerusakanPohon?:any
   DetailPohon?:any
   id?: number;
   id_jenis_pohon?:string,
