@@ -14,9 +14,10 @@ export default function DetailKerusakan({ DATA_KERUSAKAN }: { DATA_KERUSAKAN: Ma
     const KERUSAKAN: any[] = DATA_KERUSAKAN.KerusakanPohon
     return (
         <>
-            {KERUSAKAN.map((dt, i) => (
+
+            {KERUSAKAN.map((dt, index) => (
                 <>
-                    <div className="lg:flex sm:w-full gap-4 space-y-1" key={i}>
+                    <div className="lg:flex sm:w-full gap-4 space-y-1" key={index}>
                         <div className="lg:w-1/1 sm:w-full items-center justify-center">
                             <Table className="w-full ">
                                 <TableBody>
@@ -82,7 +83,6 @@ export default function DetailKerusakan({ DATA_KERUSAKAN }: { DATA_KERUSAKAN: Ma
                     <Separator className="my-10 font-bold" />
                 </>
             ))}
-
 
         </>
     )
