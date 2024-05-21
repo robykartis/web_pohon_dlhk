@@ -22,7 +22,7 @@ export default async function UserPage() {
                                 <span className="md:text-center md:px-3">Master User</span>
                                 <div className="mt-2 md:mt-0 ml-auto md:ml-0">
                                     <ModalCreateUser tokensData={tokens} />
-                                    <GeneratePDF />
+                                    {/* <GeneratePDF /> */}
                                 </div>
                             </CardTitle>
                         </CardHeader>
