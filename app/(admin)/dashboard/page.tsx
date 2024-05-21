@@ -1,15 +1,6 @@
 
-import { BarCharts, LineCharts, PieCharts } from "@/components/admin/Charts/Charts"
 import CardDashboard from "@/components/admin/dashboard/card-components"
-import MapContainer from "@/components/admin/Maps/MapContainer"
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card"
+
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
