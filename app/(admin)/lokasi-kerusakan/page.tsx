@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default async function LokasiKerusakanPage() {
     const tokensData = await getToken()
     const DATA: any = await getLokasiKerusakan();
-    console.log(DATA)
+    // console.log(DATA)
     return (
         <>
             <div className="container mx-auto px-4 py-2 md:px-6 md:py-3">

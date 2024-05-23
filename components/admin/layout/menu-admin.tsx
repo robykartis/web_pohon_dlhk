@@ -7,24 +7,14 @@ import { CustomSession } from '@/app/api/auth/[...nextauth]/options'
 
 
 import {
-    Bell,
     BugOff,
-    CircleUser,
     FileText,
-    Home,
     HomeIcon,
-    LineChart,
     MapPinned,
-    Menu,
     Package,
-    Package2,
-    Search,
-    ShoppingCart,
     TreeDeciduous,
     Trees,
-    Triangle,
     TriangleAlert,
-    Users,
     Users2,
 } from "lucide-react"
 import { Badge } from '@/components/ui/badge'
@@ -93,7 +83,7 @@ export function MenuAdmin() {
                         })}
                     >
                         <Users2 className="h-4 w-4" />
-                        User
+                        Pengguna
                     </Link>
 
                     <Link
@@ -134,7 +124,7 @@ export function MenuAdmin() {
                     </Link>
 
                     <Separator className="my-4" />
-                    <h4 className='px-3 py-2'> MAP</h4>
+                    <h4 className='px-3 py-2'>DATA TRANSAKSI</h4>
                     <Link
                         href="/admin-maps-lokasi-kerusakan"
                         className={cn("flex items-center gap-3 px-3 py-2 text-muted-foreground transition-all hover:rounded-lg hover:bg-primary/20", {
@@ -145,7 +135,6 @@ export function MenuAdmin() {
                         Sebaran Data Pohon
                     </Link>
 
-                    <h4 className='px-3 py-2'>DATA</h4>
                     <Link
                         href="/admin-pendataan-pohon"
                         className={cn("flex items-center gap-3 px-3 py-2 text-muted-foreground transition-all hover:rounded-lg hover:bg-primary/20", {
@@ -211,7 +200,6 @@ export function MobileMenuAdmin() {
                 className="flex items-center gap-2 text-lg font-semibold"
             >
                 <TreeDeciduous className="h-6 w-6" />Admin
-
             </Link>
 
             <Link
@@ -235,7 +223,7 @@ export function MobileMenuAdmin() {
                         })}
                     >
                         <Users2 className="h-4 w-4" />
-                        User
+                        Pengguna
                     </Link>
                     <Link
                         href="/pohon"
@@ -274,7 +262,7 @@ export function MobileMenuAdmin() {
                         Kelas Keparahan
                     </Link>
                     <Separator className="my-4" />
-                    <h4 className='md:px-3 md:py-2 text-sm font-bold'>DATA MAP</h4>
+                    <h4 className='md:px-3 md:py-2 text-sm font-bold'>DATA TRANSAKSI</h4>
                     <Link
                         href="/admin-maps-lokasi-kerusakan"
                         className={cn("mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-sm text-muted-foreground hover:text-foreground", {
@@ -282,10 +270,8 @@ export function MobileMenuAdmin() {
                         })}
                     >
                         <MapPinned className="h-4 w-4" />
-                        Lokasi Kerusakan
+                        Sebaran Data Pohon
                     </Link>
-                    <Separator className="my-4" />
-                    <h4 className='md:px-3 md:py-2 text-sm font-bold'>DATA MAP</h4>
                     <Link
                         href="/admin-pendataan-pohon"
                         className={cn("mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-sm text-muted-foreground hover:text-foreground", {

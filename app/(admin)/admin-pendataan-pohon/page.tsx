@@ -4,6 +4,7 @@ import { DataTable } from "./data-table"
 import { columns } from "./columns-table"
 import { Metadata } from "next"
 import { getMapsDataTable } from "@/app/api/Admin/MapsApi"
+import { ScrollArea } from "@/components/ui/scroll-area"
 
 export const metadata: Metadata = {
     title: `${process.env.NEXT_PUBLIC_APP_NAME} - Pendataan Pohon`,

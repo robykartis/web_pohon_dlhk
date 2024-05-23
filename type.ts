@@ -19,10 +19,21 @@ type UserType = {
 };
 // Pohon data
 type PohonType = {
+  KerusakanPohon?:any
+  DetailPohon?:any
   id?: number;
-  id_pohon?:number;
-  nama: string;
-  nama_latin: string;
+  id_jenis_pohon?:string,
+  nama_pohon?: string,
+  tahun_tanam?: string,
+  id_kel?: string,
+  kel?: string,
+  id_kec?: string,
+  kec?: string,
+  nm_jalan?: string,
+  lat?: string,
+  long?: string,
+  status_pohon?: string
+  id_petugas?: string
 };
 // Lokasi kerusakan
 type LokasiKerusakanType = {

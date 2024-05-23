@@ -1,3 +1,4 @@
+import { getMapsDataTable } from "@/app/api/Admin/MapsApi";
 import {
     Card,
     CardContent,
@@ -7,17 +8,19 @@ import {
 import { Metadata } from "next"
 import dynamic from 'next/dynamic'
 
-const DynamicMap = dynamic(() => import('@/components/admin/Maps/Maps'), {
+const DynamicMap = dynamic(() => import('./maps-data'), {
     ssr: false
 });
 
 export const metadata: Metadata = {
-    title: `${process.env.NEXT_PUBLIC_APP_NAME} - Dashboard`,
-    description: 'Build digital experiences for any tech stack, visually.',
+    title: `${process.env.NEXT_PUBLIC_APP_NAME} - Sebaran Data Pohon`,
+    description: `${process.env.NEXT_PUBLIC_APP_NAME} - Sebaran Data Pohon`,
 }
 
 
-export default function StatistikLokasiKerusakanPage() {
+export default async function StatistikLokasiKerusakanPage() {
+    const DATA: any[] = await getMapsDataTable();
+    // console.log(DATA)
     return (
         <>
             <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
@@ -27,7 +30,7 @@ export default function StatistikLokasiKerusakanPage() {
                             <CardTitle>Lokasi Kerusakan</CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <DynamicMap />
+                            <DynamicMap mapData={DATA} />
                         </CardContent>
                     </Card>
                 </div>

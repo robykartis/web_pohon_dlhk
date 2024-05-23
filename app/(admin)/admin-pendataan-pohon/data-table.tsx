@@ -53,7 +53,7 @@ export function DataTable<TData, TValue>({
         // Simulasikan pemuatan data
         const timer = setTimeout(() => {
             setIsLoading(false);
-        }, 1000); // Ubah durasi sesuai kebutuhan
+        }, 2000); // Ubah durasi sesuai kebutuhan
 
         return () => clearTimeout(timer);
     }, []);
@@ -89,7 +89,7 @@ export function DataTable<TData, TValue>({
                                 onChange={event =>
                                     table.getColumn('nama_pohon')?.setFilterValue(event.target.value)
                                 }
-                                className='max-w-sm'
+                                className='max-w-lg'
                             />
                         </div>
 

@@ -7,6 +7,7 @@ import { authOptions } from "../api/auth/[...nextauth]/options"
 import { redirect } from "next/navigation"
 import SidebarAdmin from "@/components/admin/layout/sidebar-admin"
 import BreadcrumbAdmin from "@/components/admin/breadcrubms-admin"
+import { ScrollArea } from "@/components/ui/scroll-area"
 
 
 export const metadata: Metadata = {
@@ -28,7 +29,10 @@ export default async function DashboardLayout({ children, }: { children: React.R
                     <div className="flex flex-col">
                         <HeaderAdmin />
                         <div className="mt-4">
-                            {children}
+                            <ScrollArea className="h-[700px] w-full">
+
+                                {children}
+                            </ScrollArea>
                         </div>
                     </div>
                 </div>
