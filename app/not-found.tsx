@@ -1,13 +1,15 @@
+'use client'
 import { Button } from '@/components/ui/button'
 import { Metadata } from 'next'
-import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 export const metadata: Metadata = {
     title: `${process.env.NEXT_PUBLIC_APP_NAME} - 404`,
-    description: 'App Pohon Digital - 404',
+    description: `${process.env.NEXT_PUBLIC_APP_NAME} - 404`,
 }
 
 export default function NotFound() {
+    const router = useRouter();
     return (
         <div className="flex min-h-[100dvh] flex-col items-center justify-center bg-gray-100 px-4 py-12 dark:bg-gray-800">
             <div className="mx-auto max-w-md text-center">
@@ -19,15 +21,15 @@ export default function NotFound() {
                     Sepertinya halaman yang Anda coba akses tidak ada atau telah dipindahkan. Mohon periksa URL atau coba kembali ke halaman utama.
                 </p>
                 <div className="mt-10">
-                    <Link
+                    <div
                         className="inline-flex items-center px-4 py-2 text-sm font-medium transition-colors"
-                        href="/"
+
                     >
-                        <Button >
+                        <Button onClick={() => router.back()}>
                             Go back home
                         </Button>
 
-                    </Link>
+                    </div>
                 </div>
             </div>
         </div>

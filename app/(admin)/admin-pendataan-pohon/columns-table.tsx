@@ -5,36 +5,43 @@ import { ArrowUpDown, View } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 import { DETAIL_MAP_POHON } from '@/lib/api'
-import { useState } from 'react'
 import axios from '@/lib/axios'
 import { getToken } from '@/app/api/Admin/UserApi'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
-import { toast } from 'react-toastify'
-import ModalView from './modal-view'
-import { Dialog } from '@/components/ui/dialog'
+const CellComponent = async ({ row }: any) => {
+    const route = useRouter();
+    const Star = Math.floor(100000000 + Math.random() * 900000000).toString();
+    const Id = row.original.id;
+    // console.log(Id)
+    const End = Math.floor(100000000 + Math.random() * 900000000).toString();
+    console.log(Star + Id + End);
 
-const CellComponent = ({ row }: any) => {
-    const pohonId = row.original.id;
-    const [modalData, setModalData] = useState(null);
-    const [modalOpen, setModalOpen] = useState<boolean>(false);
-    const handleOpenModal = async () => {
-        try {
-            const data = await handleClik(pohonId);
-            setModalData(data);
-            setModalOpen(true);
-        } catch (error: any) {
-            toast.error(error, { theme: "colored" });
-        }
-    };
+    // const [modalData, setModalData] = useState(null);
+    // const [modalOpen, setModalOpen] = useState<boolean>(false);
+    // const handleOpenModal = async () => {
+    //     try {
+    //         const data = await handleClik(pohonId);
+    //         setModalData(data);
+    //         setModalOpen(true);
+    //     } catch (error: any) {
+    //         toast.error(error, { theme: "colored" });
+    //     }
+    // };
 
     return (
         <>
             <div className="flex gap-2 float-right">
                 {/* Tombol edit */}
-                <Button onClick={handleOpenModal} size="icon">  <View /></Button>
+                <Link href={`admin-pendataan-pohon/${Star}${Id}${End}`}>
+                    <Button>Detail</Button>
+                </Link>
+
+                {/* <Button onClick={handleOpenModal} size="icon">  <View /></Button>
                 <Dialog open={modalOpen} onOpenChange={setModalOpen}>
                     {modalData && modalOpen && <ModalView data={modalData} />}
-                </Dialog>
+                </Dialog> */}
 
             </div>
         </>

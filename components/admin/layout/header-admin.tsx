@@ -23,8 +23,8 @@ import {
     Menu,
 } from "lucide-react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import MobileMenuAdmin from "./mobile-menu"
 import { ModeToggle } from "@/components/theme-toggle"
+import { MobileMenuAdmin } from "./menu-admin"
 
 
 export default function HeaderAdmin() {

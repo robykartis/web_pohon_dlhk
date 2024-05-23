@@ -6,8 +6,8 @@ import { Metadata } from "next"
 import { getMapsDataTable } from "@/app/api/Admin/MapsApi"
 
 export const metadata: Metadata = {
-    title: `${process.env.NEXT_PUBLIC_APP_NAME} - Lokasi Kerusakan`,
-    description: 'Build digital experiences for any tech stack, visually.',
+    title: `${process.env.NEXT_PUBLIC_APP_NAME} - Pendataan Pohon`,
+    description: `${process.env.NEXT_PUBLIC_APP_NAME} - Pendataan Pohon`,
 }
 export default async function PendataanPohonPage() {
     const tokensData = await getToken()

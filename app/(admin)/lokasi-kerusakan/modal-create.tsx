@@ -90,7 +90,7 @@ export default function ModalCreateLokasiKerusakan({ tokensData }: Props) {
 
             <Button size="sm" variant="outline" className="ml-auto" onClick={() => setIsDrawerOpen(true)}>
                 <PlusIcons />
-                Tambah Lokasi Kerusakan
+                Tambah Jenis Kerusakan
             </Button>
             <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
                 <DrawerContent>
@@ -98,8 +98,8 @@ export default function ModalCreateLokasiKerusakan({ tokensData }: Props) {
                         <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
                             <div className="mx-auto w-full max-w-lg">
                                 <DrawerHeader className="justify-items-center">
-                                    <DrawerTitle>Tambah Lokasi Kerusakan</DrawerTitle>
-                                    <DrawerDescription>Menambahkan Data Lokasi Kerusakan Ke Sistim</DrawerDescription>
+                                    <DrawerTitle>Tambah Jenis Kerusakan</DrawerTitle>
+                                    <DrawerDescription>Menambahkan Data Jenis Kerusakan Ke Sistim</DrawerDescription>
                                 </DrawerHeader>
                                 <div className="grid items-start gap-4">
                                     <FormField
@@ -122,10 +122,10 @@ export default function ModalCreateLokasiKerusakan({ tokensData }: Props) {
                                         name="LokasiKerusakan"
                                         render={({ field }) => (
                                             <FormItem>
-                                                <FormLabel>Lokasi Kerusan</FormLabel>
+                                                <FormLabel>Jenis Kerusakan</FormLabel>
                                                 <Input
                                                     id="LokasiKerusakan"
-                                                    placeholder="Lokasi Kerusan"
+                                                    placeholder="Jenis Kerusakan"
                                                     {...field}
                                                 />
                                                 <FormMessage />

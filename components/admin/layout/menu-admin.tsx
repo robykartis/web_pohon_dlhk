@@ -20,6 +20,7 @@ import {
     Package2,
     Search,
     ShoppingCart,
+    TreeDeciduous,
     Trees,
     Triangle,
     TriangleAlert,
@@ -120,7 +121,7 @@ export function MenuAdmin() {
                         })}
                     >
                         <MapPinned className="h-4 w-4" />
-                        Lokasi Kerusakan
+                        Jenis Kerusakan
                     </Link>
                     <Link
                         href="/kelas-keparahan"
@@ -141,7 +142,7 @@ export function MenuAdmin() {
                         })}
                     >
                         <MapPinned className="h-4 w-4" />
-                        Lokasi Kerusakan
+                        Sebaran Data Pohon
                     </Link>
 
                     <h4 className='px-3 py-2'>DATA</h4>
@@ -200,7 +201,7 @@ export function MobileMenuAdmin() {
     const { isSu, isAdmin, isKepala, isUser, isPetugas } = useUserLevels();
     const {
         isDashboardPath, isUsersPath, isPohonPath, isTipeKerusakanPath,
-        isLokasiPath, isKelasKeparahanPath
+        isLokasiPath, isKelasKeparahanPath, isMapsKelasKeparahan, isPendataanPohon
     } = usePathChecks();
 
     return (
@@ -209,69 +210,116 @@ export function MobileMenuAdmin() {
                 href="#"
                 className="flex items-center gap-2 text-lg font-semibold"
             >
-                <Package2 className="h-6 w-6" />
-                <span className="sr-only">Acme Inc</span>
+                <TreeDeciduous className="h-6 w-6" />Admin
+
             </Link>
 
             <Link
                 href="/dashboard"
-                className={cn("mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground", {
-                    "rounded-lg bg-muted px-3 py-2 text-primary": isDashboardPath(),
+                className={cn("mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-sm text-muted-foreground hover:text-foreground", {
+                    "rounded-lg bg-muted px-3 py-2 text-sm text-black dark:text-white": isDashboardPath(),
                 })}
             >
-                <ShoppingCart className="h-5 w-5" />
+                <HomeIcon className="h-4 w-4" />
                 Dashboard
             </Link>
 
             {(isSu || isAdmin) && (
                 <>
+                    <Separator className="my-4" />
+                    <h4 className='md:px-3 md:py-2 text-sm font-bold'>DATA MASTER</h4>
                     <Link
                         href="/user"
-                        className={cn("mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground", {
-                            "rounded-xl bg-muted px-3 py-2 text-primary": isUsersPath(),
+                        className={cn("mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 text-sm py-2 text-muted-foreground hover:text-foreground", {
+                            "rounded-xl bg-muted px-3 py-2 text-sm text-black dark:text-white": isUsersPath(),
                         })}
                     >
-                        <ShoppingCart className="h-5 w-5" />
+                        <Users2 className="h-4 w-4" />
                         User
                     </Link>
                     <Link
                         href="/pohon"
-                        className={cn("mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground", {
-                            "rounded-xl bg-muted px-3 py-2 text-primary": isPohonPath(),
+                        className={cn("mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-sm text-muted-foreground hover:text-foreground", {
+                            "rounded-xl bg-muted px-3 py-2 text-sm text-black dark:text-white": isPohonPath(),
                         })}
                     >
-                        <ShoppingCart className="h-5 w-5" />
+                        <Trees className="h-4 w-4" />
                         Jenis Pohon
                     </Link>
                     <Link
                         href="/tipe-kerusakan"
-                        className={cn("mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground", {
-                            "rounded-xl bg-muted px-3 py-2 text-primary": isTipeKerusakanPath(),
+                        className={cn("mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-sm text-muted-foreground hover:text-foreground", {
+                            "rounded-xl bg-muted px-3 py-2 text-sm text-black dark:text-white": isTipeKerusakanPath(),
                         })}
                     >
-                        <ShoppingCart className="h-5 w-5" />
+                        <BugOff className="h-4 w-4" />
                         Tipe Kerusakan
                     </Link>
                     <Link
                         href="/lokasi-kerusakan"
-                        className={cn("mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground", {
-                            "rounded-xl bg-muted px-3 py-2 text-primary": isLokasiPath(),
+                        className={cn("mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-sm text-muted-foreground hover:text-foreground", {
+                            "rounded-xl bg-muted px-3 py-2 text-sm text-black dark:text-white": isLokasiPath(),
                         })}
                     >
-                        <ShoppingCart className="h-5 w-5" />
-                        Lokasi Kerusakan
+                        <FileText className="h-4 w-4" />
+                        Jenis Kerusakan
                     </Link>
                     <Link
                         href="/kelas-keparahan"
-                        className={cn("mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground", {
-                            "rounded-xl bg-muted px-3 py-2 text-primary": isKelasKeparahanPath(),
+                        className={cn("mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-sm text-muted-foreground hover:text-foreground", {
+                            "rounded-xl bg-muted px-3 py-2 text-sm text-black dark:text-white": isKelasKeparahanPath(),
                         })}
                     >
-                        <ShoppingCart className="h-5 w-5" />
+                        <TriangleAlert className="h-4 w-4" />
                         Kelas Keparahan
                     </Link>
+                    <Separator className="my-4" />
+                    <h4 className='md:px-3 md:py-2 text-sm font-bold'>DATA MAP</h4>
+                    <Link
+                        href="/admin-maps-lokasi-kerusakan"
+                        className={cn("mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-sm text-muted-foreground hover:text-foreground", {
+                            "rounded-xl bg-muted px-3 py-2 text-sm text-black dark:text-white": isMapsKelasKeparahan(),
+                        })}
+                    >
+                        <MapPinned className="h-4 w-4" />
+                        Lokasi Kerusakan
+                    </Link>
+                    <Separator className="my-4" />
+                    <h4 className='md:px-3 md:py-2 text-sm font-bold'>DATA MAP</h4>
+                    <Link
+                        href="/admin-pendataan-pohon"
+                        className={cn("mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-sm text-muted-foreground hover:text-foreground", {
+                            "rounded-xl bg-muted px-3 py-2 text-sm text-black dark:text-white": isPendataanPohon(),
+                        })}
+                    >
+                        <FileText className="h-4 w-4" />
+                        Pendataan Pohon
+                    </Link>
+
                 </>
             )}
+            {/* Menu untuk pengguna biasa */}
+            {isKepala && (
+                <>
+
+
+                </>
+            )}
+            {isUser && (
+                <>
+
+
+                </>
+            )}
+            {isPetugas && (
+                <>
+
+
+                </>
+            )}
+
+
+
         </>
     );
 }

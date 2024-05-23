@@ -53,7 +53,7 @@ export function DataTable<TData, TValue>({
         // Simulasikan pemuatan data
         const timer = setTimeout(() => {
             setIsLoading(false);
-        }, 2000); // Ubah durasi sesuai kebutuhan
+        }, 1000); // Ubah durasi sesuai kebutuhan
 
         return () => clearTimeout(timer);
     }, []);

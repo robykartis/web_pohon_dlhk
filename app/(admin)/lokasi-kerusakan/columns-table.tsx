@@ -92,7 +92,7 @@ export const columns: ColumnDef<PohonType>[] = [
     },
     {
         accessorKey: 'lokasi_kerusakan',
-        header: 'Lokasi Kerusakan'
+        header: 'Jenis Kerusakan'
     },
     {
         id: 'actions',

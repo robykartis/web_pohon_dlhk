@@ -2,50 +2,48 @@
 import { CustomSession } from '@/app/api/auth/[...nextauth]/options';
 import { Separator } from '@/components/ui/separator';
 import { cn } from '@/lib/utils';
-import { BugOff, HomeIcon, MapPinned, TreeDeciduous, Trees, TriangleAlert, Users2 } from 'lucide-react'
+import { BugOff, FileText, HomeIcon, MapPinned, TreeDeciduous, Trees, TriangleAlert, Users2 } from 'lucide-react'
 import { useSession } from 'next-auth/react';
 import Link from 'next/link'
 import { usePathname } from 'next/navigation';
 import React from 'react'
 
 
-const MobileMenuAdmin = () => {
-    const { data } = useSession();
-    const userSession = data as CustomSession;
-    const level = userSession?.user?.level;
-    // console.log(level);
-    const isSu = level?.includes("Superadmin");
-    const isAdmin = level?.includes("admin");
-    const isKepala = level?.includes("kepala");
-    const isUser = level?.includes("user");
-    const isPetugas = level?.includes("petugas");
+const MobileMenuAdmindd = () => {
+    const useUserLevels = () => {
+        const { data } = useSession();
+        const userSession = data as CustomSession;
+        const level = userSession?.user?.level;
 
-    const paths = usePathname();
-    const pathNames = paths.split('/').filter(path => path);
-
-    // Fungsi untuk memeriksa apakah path URL saat ini adalah bagian dari page
-    const isDashboardPath = () => {
-        return pathNames[0] === "dashboard" || pathNames[0] === "show" || pathNames[0] === "edit";
-    };
-    const isUsersPath = () => {
-        return pathNames[0] === "user" || pathNames[0] === "show" || pathNames[0] === "edit";
-    };
-    const isPohonPath = () => {
-        return pathNames[0] === "pohon" || pathNames[0] === "show" || pathNames[0] === "edit";
-    };
-    const isLokasiPath = () => {
-        return pathNames[0] === "lokasi-kerusakan" || pathNames[0] === "show" || pathNames[0] === "edit";
-    };
-    const isTipeKerusakan = () => {
-        return pathNames[0] === "tipe-kerusakan" || pathNames[0] === "show" || pathNames[0] === "edit";
-    };
-    const isKelasKeparahan = () => {
-        return pathNames[0] === "kelas-keparahan" || pathNames[0] === "show" || pathNames[0] === "edit";
-    };
-    const isMapsKelasKerusakan = () => {
-        return pathNames[0] === "admin-maps-kelas-kerusakan" || pathNames[0] === "show" || pathNames[0] === "edit";
+        return {
+            isSu: level?.includes("Superadmin"),
+            isAdmin: level?.includes("admin"),
+            isKepala: level?.includes("kepala"),
+            isUser: level?.includes("user"),
+            isPetugas: level?.includes("petugas"),
+        };
     };
 
+    const usePathChecks = () => {
+        const paths = usePathname();
+        const pathNames = paths.split('/').filter(path => path);
+
+        return {
+            isDashboardPath: () => ["dashboard", "show", "edit"].includes(pathNames[0]),
+            isUsersPath: () => ["user", "show", "edit"].includes(pathNames[0]),
+            isPohonPath: () => ["pohon", "show", "edit"].includes(pathNames[0]),
+            isLokasiPath: () => ["lokasi-kerusakan", "show", "edit"].includes(pathNames[0]),
+            isTipeKerusakanPath: () => ["tipe-kerusakan", "show", "edit"].includes(pathNames[0]),
+            isKelasKeparahanPath: () => ["kelas-keparahan", "show", "edit"].includes(pathNames[0]),
+            isMapsKelasKeparahan: () => ["admin-maps-lokasi-kerusakan", "show", "edit"].includes(pathNames[0]),
+            isPendataanPohon: () => ["admin-pendataan-pohon", "show", "edit"].includes(pathNames[0]),
+        };
+    }
+    const { isSu, isAdmin, isKepala, isUser, isPetugas } = useUserLevels();
+    const {
+        isDashboardPath, isUsersPath, isPohonPath, isTipeKerusakanPath,
+        isLokasiPath, isKelasKeparahanPath, isMapsKelasKeparahan, isPendataanPohon
+    } = usePathChecks();
     return (
         <>
             <Link
@@ -91,7 +89,7 @@ const MobileMenuAdmin = () => {
                     <Link
                         href="/tipe-kerusakan"
                         className={cn("mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-sm text-muted-foreground hover:text-foreground", {
-                            "rounded-xl bg-muted px-3 py-2 text-sm text-black dark:text-white": isTipeKerusakan(),
+                            "rounded-xl bg-muted px-3 py-2 text-sm text-black dark:text-white": isTipeKerusakanPath(),
                         })}
                     >
                         <BugOff className="h-4 w-4" />
@@ -103,13 +101,13 @@ const MobileMenuAdmin = () => {
                             "rounded-xl bg-muted px-3 py-2 text-sm text-black dark:text-white": isLokasiPath(),
                         })}
                     >
-                        <MapPinned className="h-4 w-4" />
-                        Lokasi Kerusakan
+                        <FileText className="h-4 w-4" />
+                        Jenis Kerusakan
                     </Link>
                     <Link
                         href="/kelas-keparahan"
                         className={cn("mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-sm text-muted-foreground hover:text-foreground", {
-                            "rounded-xl bg-muted px-3 py-2 text-sm text-black dark:text-white": isKelasKeparahan(),
+                            "rounded-xl bg-muted px-3 py-2 text-sm text-black dark:text-white": isKelasKeparahanPath(),
                         })}
                     >
                         <TriangleAlert className="h-4 w-4" />
@@ -120,11 +118,22 @@ const MobileMenuAdmin = () => {
                     <Link
                         href="/admin-maps-lokasi-kerusakan"
                         className={cn("mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-sm text-muted-foreground hover:text-foreground", {
-                            "rounded-xl bg-muted px-3 py-2 text-sm text-black dark:text-white": isMapsKelasKerusakan(),
+                            "rounded-xl bg-muted px-3 py-2 text-sm text-black dark:text-white": isMapsKelasKeparahan(),
                         })}
                     >
                         <MapPinned className="h-4 w-4" />
                         Lokasi Kerusakan
+                    </Link>
+                    <Separator className="my-4" />
+                    <h4 className='md:px-3 md:py-2 text-sm font-bold'>DATA MAP</h4>
+                    <Link
+                        href="/admin-pendataan-pohon"
+                        className={cn("mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-sm text-muted-foreground hover:text-foreground", {
+                            "rounded-xl bg-muted px-3 py-2 text-sm text-black dark:text-white": isPendataanPohon(),
+                        })}
+                    >
+                        <FileText className="h-4 w-4" />
+                        Pendataan Pohon
                     </Link>
 
                 </>
@@ -155,4 +164,4 @@ const MobileMenuAdmin = () => {
     )
 }
 
-export default MobileMenuAdmin
+export default MobileMenuAdmindd

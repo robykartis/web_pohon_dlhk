@@ -111,7 +111,7 @@ function ModalUpdateLokasiKerusakan({ data, onUpdateFinish }: { data: LokasiKeru
                 <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-4">
                     <div className="mx-auto w-full max-w-lg">
                         <DrawerHeader className="justify-items-center">
-                            <DrawerTitle>Update Pohon</DrawerTitle>
+                            <DrawerTitle>Update Jenis Kerusakan</DrawerTitle>
                             <DrawerDescription>{data ? data.kode : ""} </DrawerDescription>
                         </DrawerHeader>
                         <div className="grid items-start gap-4">
@@ -178,9 +178,9 @@ function ModalUpdateLokasiKerusakan({ data, onUpdateFinish }: { data: LokasiKeru
                                         name="LokasiKerusakan"
                                         render={({ field }) => (
                                             <FormItem>
-                                                <FormLabel>Lokasi Kerusakan</FormLabel>
+                                                <FormLabel>Jenis Kerusakan</FormLabel>
                                                 <Input
-                                                    placeholder="Lokasi Kerusakan"
+                                                    placeholder="Jenis Kerusakan"
                                                     {...field}
                                                 />
                                                 <FormMessage />
