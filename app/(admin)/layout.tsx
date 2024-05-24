@@ -6,7 +6,6 @@ import { getServerSession } from "next-auth"
 import { authOptions } from "../api/auth/[...nextauth]/options"
 import { redirect } from "next/navigation"
 import SidebarAdmin from "@/components/admin/layout/sidebar-admin"
-import BreadcrumbAdmin from "@/components/admin/breadcrubms-admin"
 import { ScrollArea } from "@/components/ui/scroll-area"
 
 

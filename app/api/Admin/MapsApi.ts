@@ -85,3 +85,5 @@ export async function getDetailPohon(id: any) {
     );
     return response
 }
+
+
