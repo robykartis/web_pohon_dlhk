@@ -16,8 +16,8 @@ const DetailKerusakanPohon = ({ dataPohon }: any) => {
                             <Image
                                 alt="Informasi Terkini"
                                 className="w-full max-w-md rounded-lg object-cover"
-                                height={400}
                                 src={`${process.env.NEXT_PUBLIC_API_URL}/${data.folder_kerusakan}${data.foto_kerusakan}`}
+                                height={400}
                                 style={{
                                     aspectRatio: "600/400",
                                     objectFit: "cover",
