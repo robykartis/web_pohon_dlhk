@@ -11,7 +11,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
 import React from 'react'
 
-export default async function MapsDetail({ mapData }: any) {
+export default function MapsDetail({ mapData }: any) {
     const DATA: any = mapData.DetailPohon
     // console.log(DATA)
     const lat = DATA.lat;

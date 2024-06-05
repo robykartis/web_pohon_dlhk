@@ -11,7 +11,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
 import React from 'react'
 
-export default async function MapsData({ mapData }: any) {
+export default function MapsData({ mapData }: any) {
     const DATA: MapsLokasiKerusakanType[] = mapData.data;
     const lat = DATA.map((map: any) => map.lat);
     const lng = DATA.map((map: any) => map.long);

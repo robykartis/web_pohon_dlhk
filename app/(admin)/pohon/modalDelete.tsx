@@ -54,7 +54,7 @@ export default function ModalDeletePohon({ data }: { data: PohonType, onDeleteFi
                 <div className="mx-auto w-full max-w-lg">
                     <DrawerHeader className="justify-items-center">
                         <DrawerTitle>Hapus Pohon</DrawerTitle>
-                        <DrawerDescription>{data ? data.nama : ""} </DrawerDescription>
+                        <DrawerDescription>{data ? data?.nama : ""} </DrawerDescription>
                     </DrawerHeader>
                     <div className="grid items-start gap-4">
                         {/* Tempatkan konten tambahan di sini jika diperlukan */}

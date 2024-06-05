@@ -19,6 +19,10 @@ type UserType = {
 };
 // Pohon data
 type PohonType = {
+nama?: string,
+nama_latin?: string,
+
+
   KerusakanPohon?:any
   DetailPohon?:any
   id?: number;
