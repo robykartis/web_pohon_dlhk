@@ -52,7 +52,7 @@ export default function ModalDeleteLokasiKerusakan({ data }: { data: LokasiKerus
             <div className="w-full space-y-4">
                 <div className="mx-auto w-full max-w-lg">
                     <DrawerHeader className="justify-items-center">
-                        <DrawerTitle>Hapus Pohon</DrawerTitle>
+                        <DrawerTitle>Hapus Jenis Kerusakan</DrawerTitle>
                         <DrawerDescription>{data ? data.kode : ""} </DrawerDescription>
                     </DrawerHeader>
                     <div className="grid items-start gap-4">

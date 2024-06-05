@@ -179,8 +179,8 @@ function ModalUpdate({ data, onUpdateFinish }: { data: UserType, onUpdateFinish:
                 <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
                     <div className="mx-auto w-full max-w-full p-6">
                         <DrawerHeader className="justify-items-center">
-                            <DrawerTitle>Update User</DrawerTitle>
-                            <DrawerDescription>Menambahkan Data Pohon Ke Sistim</DrawerDescription>
+                            <DrawerTitle>Edit Pengguna</DrawerTitle>
+                            <DrawerDescription>Edit Data Pengguna</DrawerDescription>
                         </DrawerHeader>
                         <div className="grid items-start gap-4">
                             <div className="grid grid-cols-3 gap-4">
@@ -386,11 +386,11 @@ function ModalUpdate({ data, onUpdateFinish }: { data: UserType, onUpdateFinish:
                                         </Button>
                                     ) : (
                                         <Button disabled={pending}>
-                                            Update
+                                            Simpan
                                         </Button>
                                     )}
                                     <DrawerClose asChild>
-                                        <Button variant="outline">Cancel</Button>
+                                        <Button variant="outline">Batal</Button>
                                     </DrawerClose>
                                 </>
                             )}

@@ -111,7 +111,7 @@ function ModalUpdateLokasiKerusakan({ data, onUpdateFinish }: { data: LokasiKeru
                 <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-4">
                     <div className="mx-auto w-full max-w-lg">
                         <DrawerHeader className="justify-items-center">
-                            <DrawerTitle>Update Jenis Kerusakan</DrawerTitle>
+                            <DrawerTitle>Edit Jenis Kerusakan</DrawerTitle>
                             <DrawerDescription>{data ? data.kode : ""} </DrawerDescription>
                         </DrawerHeader>
                         <div className="grid items-start gap-4">
@@ -207,7 +207,7 @@ function ModalUpdateLokasiKerusakan({ data, onUpdateFinish }: { data: LokasiKeru
                                         </Button>
                                     )}
                                     <DrawerClose asChild>
-                                        <Button variant="outline">Cancel</Button>
+                                        <Button variant="outline">Batal</Button>
                                     </DrawerClose>
                                 </>
                             )}

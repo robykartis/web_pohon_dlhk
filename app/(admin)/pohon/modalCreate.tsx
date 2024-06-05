@@ -105,8 +105,8 @@ export default function ModalCreate({ tokensData }: Props) {
                         <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
                             <div className="mx-auto w-full max-w-lg">
                                 <DrawerHeader className="justify-items-center">
-                                    <DrawerTitle>Create Pohon</DrawerTitle>
-                                    <DrawerDescription>Menambahkan Data Pohon Ke Sistim</DrawerDescription>
+                                    <DrawerTitle>Tambah Jenis Pohon</DrawerTitle>
+                                    <DrawerDescription>Menambahkan Data Jenis Pohon</DrawerDescription>
                                 </DrawerHeader>
                                 <div className="grid items-start gap-4">
                                     <FormField
@@ -148,11 +148,11 @@ export default function ModalCreate({ tokensData }: Props) {
                                         </Button>
                                     ) : (
                                         <Button disabled={pending}>
-                                            Save
+                                            Simpan
                                         </Button>
                                     )}
                                     <DrawerClose asChild>
-                                        <Button variant="outline">Cancel</Button>
+                                        <Button variant="outline">Batal</Button>
                                     </DrawerClose>
                                 </DrawerFooter>
                             </div>

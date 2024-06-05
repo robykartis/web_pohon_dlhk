@@ -4,7 +4,12 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+    title: `${process.env.NEXT_PUBLIC_APP_NAME} - Login`,
+    description: `${process.env.NEXT_PUBLIC_APP_NAME} - Login`,
+};
 export default function Dashboard() {
     return (
         <div className="w-full lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[800px]">

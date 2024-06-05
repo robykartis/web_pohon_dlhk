@@ -111,7 +111,7 @@ function ModalUpdate({ data, onUpdateFinish }: { data: KelasKeparahanType, onUpd
                 <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-4">
                     <div className="mx-auto w-full max-w-lg">
                         <DrawerHeader className="justify-items-center">
-                            <DrawerTitle>Update Pohon</DrawerTitle>
+                            <DrawerTitle>Edit Kelas Keparahan</DrawerTitle>
                             <DrawerDescription>{data ? data.kode_keparahan : ""} </DrawerDescription>
                         </DrawerHeader>
                         <div className="grid items-start gap-4">
@@ -230,7 +230,7 @@ function ModalUpdate({ data, onUpdateFinish }: { data: KelasKeparahanType, onUpd
                                         </Button>
                                     )}
                                     <DrawerClose asChild>
-                                        <Button variant="outline">Cancel</Button>
+                                        <Button variant="outline">Batal</Button>
                                     </DrawerClose>
                                 </>
                             )}

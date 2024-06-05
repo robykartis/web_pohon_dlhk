@@ -20,7 +20,7 @@ export default async function LokasiKerusakanPage() {
                     <Card>
                         <CardHeader >
                             <CardTitle className="flex flex-col md:flex-row md:w-full justify-between items-center">
-                                <span className="md:text-center md:px-3">Master Lokasi Kerusakan</span>
+                                <span className="md:text-center md:px-3">Master Jenis Kerusakan</span>
                                 <div className="mt-2 md:mt-0 ml-auto md:ml-0">
                                     <ModalCreateLokasiKerusakan tokensData={tokensData} />
                                 </div>

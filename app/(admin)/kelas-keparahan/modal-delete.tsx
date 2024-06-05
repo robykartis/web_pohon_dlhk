@@ -53,7 +53,7 @@ export default function ModalDeleteTipeKerusakan({ data }: { data: TipeKerusakan
             <div className="w-full space-y-4">
                 <div className="mx-auto w-full max-w-lg">
                     <DrawerHeader className="justify-items-center">
-                        <DrawerTitle>Hapus Tipe Kerusakan</DrawerTitle>
+                        <DrawerTitle>Hapus Kelas Keparahan</DrawerTitle>
                         <DrawerDescription>{data ? data.kode_kerusakan : ""} </DrawerDescription>
                     </DrawerHeader>
                     <div className="grid items-start gap-4">

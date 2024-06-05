@@ -76,7 +76,7 @@ export default function FormLogin() {
                         <div className="grid gap-2 text-center">
                             <h1 className="text-3xl font-bold">Login</h1>
                             <p className="text-balance text-muted-foreground">
-                                Enter your email below to login to your account
+                                Silahkan masukkan email dan password anda
                             </p>
                         </div>
                         <form onSubmit={handleSubmit}>
@@ -122,7 +122,7 @@ export default function FormLogin() {
                 </div>
                 <div className="hidden bg-muted backdrop:blur-sm lg:block">
                     <Image
-                        src="/assets/img/login.jpg"
+                        src="/assets/img/phon_login.svg"
                         alt="Image-login"
                         width="1920"
                         height="1080"

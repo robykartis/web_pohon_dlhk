@@ -101,8 +101,8 @@ export default function ModalCreateTipeKerusakan({ tokensData }: Props) {
                         <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
                             <div className="mx-auto w-full max-w-lg">
                                 <DrawerHeader className="justify-items-center">
-                                    <DrawerTitle>Create Tipe Kerusakan</DrawerTitle>
-                                    <DrawerDescription>Menambahkan Data Tipe Kerusakan Ke Sistim</DrawerDescription>
+                                    <DrawerTitle>Tambah Tipe Kerusakan</DrawerTitle>
+                                    <DrawerDescription>Menambahkan Data Tipe Kerusakan </DrawerDescription>
                                 </DrawerHeader>
                                 <div className="grid items-start gap-4">
                                     <FormField
@@ -159,11 +159,11 @@ export default function ModalCreateTipeKerusakan({ tokensData }: Props) {
                                         </Button>
                                     ) : (
                                         <Button disabled={pending}>
-                                            Save
+                                            Simpan
                                         </Button>
                                     )}
                                     <DrawerClose asChild>
-                                        <Button variant="outline">Cancel</Button>
+                                        <Button variant="outline">Batal</Button>
                                     </DrawerClose>
                                 </DrawerFooter>
                             </div>

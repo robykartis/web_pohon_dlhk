@@ -117,7 +117,7 @@ function ModalUpdate({ data, onUpdateFinish }: { data: PohonType, onUpdateFinish
                 <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-4">
                     <div className="mx-auto w-full max-w-lg">
                         <DrawerHeader className="justify-items-center">
-                            <DrawerTitle>Update Pohon</DrawerTitle>
+                            <DrawerTitle>Edit Pohon</DrawerTitle>
                             <DrawerDescription>{data ? data.nama : ""} </DrawerDescription>
                         </DrawerHeader>
                         <div className="grid items-start gap-4">
@@ -214,7 +214,7 @@ function ModalUpdate({ data, onUpdateFinish }: { data: PohonType, onUpdateFinish
                                         </Button>
                                     )}
                                     <DrawerClose asChild>
-                                        <Button variant="outline">Cancel</Button>
+                                        <Button variant="outline">Batal</Button>
                                     </DrawerClose>
                                 </>
                             )}

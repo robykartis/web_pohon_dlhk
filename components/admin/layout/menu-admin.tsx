@@ -8,6 +8,8 @@ import { CustomSession } from '@/app/api/auth/[...nextauth]/options'
 
 import {
     BugOff,
+    Database,
+    Dock,
     FileText,
     HomeIcon,
     MapPinned,
@@ -43,7 +45,7 @@ const usePathChecks = () => {
         isDashboardPath: () => ["dashboard", "show", "edit"].includes(pathNames[0]),
         isUsersPath: () => ["user", "show", "edit"].includes(pathNames[0]),
         isPohonPath: () => ["pohon", "show", "edit"].includes(pathNames[0]),
-        isLokasiPath: () => ["lokasi-kerusakan", "show", "edit"].includes(pathNames[0]),
+        isLokasiPath: () => ["jenis-kerusakan", "show", "edit"].includes(pathNames[0]),
         isTipeKerusakanPath: () => ["tipe-kerusakan", "show", "edit"].includes(pathNames[0]),
         isKelasKeparahanPath: () => ["kelas-keparahan", "show", "edit"].includes(pathNames[0]),
         isMapsKelasKeparahan: () => ["admin-maps-lokasi-kerusakan", "show", "edit"].includes(pathNames[0]),
@@ -105,12 +107,12 @@ export function MenuAdmin() {
                         Tipe Kerusakan
                     </Link>
                     <Link
-                        href="/lokasi-kerusakan"
+                        href="/jenis-kerusakan"
                         className={cn("flex items-center gap-3 px-3 py-2 text-muted-foreground transition-all hover:rounded-lg hover:bg-primary/20", {
                             "rounded-lg bg-primary/20 text-black  dark:text-white": isLokasiPath(),
                         })}
                     >
-                        <MapPinned className="h-4 w-4" />
+                        <Database className="h-4 w-4" />
                         Jenis Kerusakan
                     </Link>
                     <Link
