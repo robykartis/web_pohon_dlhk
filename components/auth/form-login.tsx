@@ -43,8 +43,8 @@ export default function FormLogin() {
                         callbackUrl: "/dashboard",
                     });
 
-                    localStorage.setItem("token", response.data.tokens)
-                    localStorage.setItem("level", response.data.level)
+                    // localStorage.setItem("token", response.data.tokens)
+                    // localStorage.setItem("level", response.data.level)
 
                     toast({
                         title: 'Success',
